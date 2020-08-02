@@ -1,6 +1,5 @@
-const { Composer } = require('micro-bot')
-const Extra = require('telegraf/extra');
-const bot = new Composer
+const { Composer } = require('micro-bot');
+const bot = new Composer;
 
 bot.command('hola', message=> {
 	message.reply('Hola Mundo');
