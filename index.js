@@ -1,11 +1,26 @@
 const { Composer } = require('micro-bot');
+const axios = require('axios');
 const bot = new Composer;
 
-bot.command('hola', message=> {
-	message.reply('Hola Mundo');
+bot.start(ctx => {
+	console.log('Inicio');
+})
+
+bot.command(['hola', 'wena'], message=> {
+	message.reply('Wena cabros');
 });
-bot.start('praise', message =>{
-	console.log('Inicia Bot...');
+
+bot.command(['gato', 'cat', 'kitty', 'michi'], async (message) =>{
+	axios.defaults.headers.common['x-api-key'] = process.env.CAT_KEY;
+	let response = await axios.get('https://api.thecatapi.com/v1/images/search?mime_types=gif', { params: { limit:1, size:"full" } } )
+	this.image = response.data[0]
+	message.replyWithAnimation(this.image.url);
 });
+
+bot.command(['perro', 'goodboi', 'dog'], async (message) => {
+	let response = await axios.get('https://dog.ceo/api/breeds/image/random');
+	this.image = response.data;
+	message.replyWithPhoto(this.image.message);
+})
 
 module.exports = bot;
