@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^7.4.0"
+    "eslint": "^7.4.0",
+    "micro-bot": "^2.5.3",
+    "telegraf": "^3.38.0"
   }
 }
