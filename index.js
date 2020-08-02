@@ -8,4 +8,4 @@ bot.start('praise', message =>{
 	console.log('Inicia Bot...');
 });
 
-module.exports = bot
+module.exports = bot;
