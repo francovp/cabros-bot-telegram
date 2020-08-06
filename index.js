@@ -9,7 +9,18 @@ bot.start(ctx => {
 
 bot.command(['meme'], async (message) => {
 	try {
-		const response = await getRandomMemeImage();
+		const response = await getRandomMemeImage('memes');
+		console.log('response: ', response);
+		message.replyWithPhoto(response);
+	}
+	catch (error) {
+		console.error(error);
+	}
+});
+
+bot.command(['dankmeme'], async (message) => {
+	try {
+		const response = await getRandomMemeImage('dankmemes');
 		console.log('response: ', response);
 		message.replyWithPhoto(response);
 	}
