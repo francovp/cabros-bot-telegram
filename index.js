@@ -6,7 +6,7 @@ bot.start(ctx => {
 	console.log('Inicio');
 });
 
-bot.command(['meme'], meme);
+bot.command(['meme'], dankmeme);
 bot.command(['dankmeme'], dankmeme);
 bot.command(['catmeme'], catmeme);
 bot.command(['catirl'], catirl);
