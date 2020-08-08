@@ -1,39 +1,14 @@
 const { Composer } = require('micro-bot');
-const Extra = require('telegraf/extra');
-const { catmeme } = require('./functions/commands');
-const { getRandomMemeImage } = require('./functions/commons');
+const { meme, dankmeme, catmeme, catirl } = require('./functions/commands');
 const bot = new Composer;
 
 bot.start(ctx => {
 	console.log('Inicio');
 });
 
-bot.command(['meme'], async (message) => {
-	try {
-		const response = await getRandomMemeImage('memes');
-		console.log('response: ', response);
-		message.replyWithPhoto(response);
-	}
-	catch (error) {
-		console.error(error);
-	}
-});
-
-bot.command(['dankmeme'], async (message) => {
-	try {
-		const response = await getRandomMemeImage('dankmemes');
-		console.log('response: ', response);
-		message.replyWithPhoto(response);
-	}
-	catch (error) {
-		console.error(error);
-	}
-});
-
+bot.command(['meme'], meme);
+bot.command(['dankmeme'], dankmeme);
 bot.command(['catmeme'], catmeme);
-
-bot.command(['catirl'], (context) => {
-	postMeme(context, 'MEOW_IRL');
-});
+bot.command(['catirl'], catirl);
 
 module.exports = bot;
