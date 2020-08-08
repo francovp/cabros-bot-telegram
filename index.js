@@ -1,5 +1,6 @@
 const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
+const { catmeme } = require('./functions/commands');
 const { getRandomMemeImage } = require('./functions/commons');
 const bot = new Composer;
 
@@ -28,5 +29,7 @@ bot.command(['dankmeme'], async (message) => {
 		console.error(error);
 	}
 });
+
+bot.command(['catmeme'], catmeme);
 
 module.exports = bot;
