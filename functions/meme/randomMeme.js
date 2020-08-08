@@ -4,7 +4,6 @@ exports.RandomMeme = class {
 	async GetImage(subreddit) {
 		try {
 			const response = await axios.get('https://meme-api.herokuapp.com/gimme/' + subreddit);
-			console.log('response: ', response);
 			return Promise.resolve(response.data.url);
 		}
 		catch (error) {

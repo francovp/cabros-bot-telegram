@@ -1,7 +1,6 @@
 const { Composer } = require('micro-bot');
 const Extra = require('telegraf/extra');
 const { postMeme } = require('./functions/commands');
-const { getRandomMemeImage } = require('./functions/commons');
 const bot = new Composer;
 
 bot.start(ctx => {
