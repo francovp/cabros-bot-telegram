@@ -1,10 +1,10 @@
 const { getRandomMemeImage } = require('./commons');
 
-exports.catmeme = async (message) => {
+exports.postMeme = (context, params) => {
 	try {
-		const response = await getRandomMemeImage('Catmemes');
-		console.log('response: ', response);
-		message.replyWithPhoto(response);
+		getRandomMemeImage(params).then((image) => {
+			context.replyWithPhoto(image);
+		});
 	}
 	catch (error) {
 		console.error(error);
