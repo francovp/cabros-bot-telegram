@@ -20,4 +20,8 @@ bot.command(['catmeme'], (context) => {
 	postMeme(context, 'Catmemes');
 });
 
+bot.command(['catirl'], (context) => {
+	postMeme(context, 'MEOW_IRL');
+});
+
 module.exports = bot;
