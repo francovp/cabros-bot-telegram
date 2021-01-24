@@ -2,10 +2,10 @@ const { firebaseAdmin } = require('../functions/firebase/firebase');
 const { parseDate } = require('../functions/helpers');
 const { FirebaseDAL } = require('../functions/firebase/firebaseDAL');
 
-exports.getAgeOfPerson = async (result) => {
+exports.getAgeOfPerson = async (entities) => {
 	try {
 		const firebaseDAL = new FirebaseDAL();
-		const nickname = result.entities['wit$contact:contact'][0].value;
+		const nickname = entities['wit$contact:contact'][0].value;
 		if (nickname !== undefined) {
 			const userSnapshot = await firebaseDAL.queryFormCollectionWithoutLimit('users', 'array-contains', 'nicknames', nickname, firebaseAdmin.firestore());
 			if (userSnapshot.docs.length > 0) {
