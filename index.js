@@ -24,7 +24,6 @@ bot.on('text', (ctx) => {
 			await intent.parse(ctx, intentName, result.entities);
 		}).catch((error) => {
 			console.error(error);
-			return ctx.reply(error.message);
 		});
 });
 
