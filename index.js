@@ -27,6 +27,9 @@ bot.on('text', (ctx) => {
 					return ctx.reply(responseText);
 				}
 			}
+		}).catch((error) => {
+			console.error(error);
+			return ctx.reply(error.message);
 		});
 });
 
